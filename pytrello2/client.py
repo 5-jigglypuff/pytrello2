@@ -44,7 +44,7 @@ class HttpClient:
         """
         return self._request("GET", endpoint, params=params)
 
-    def post(self, method, endpoint, data=None):
+    def post(self, method, endpoint, data=None, params=None):
         """
         Sends a POST request to the Trello API.
         """
