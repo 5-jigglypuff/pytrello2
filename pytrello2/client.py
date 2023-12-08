@@ -44,11 +44,28 @@ class HttpClient:
         """
         return self._request("GET", endpoint, params=params)
 
-    def post(self, endpoint, data=None):
+    def post(self, method, endpoint, data=None):
         """
         Sends a POST request to the Trello API.
         """
-        return self._request("POST", endpoint, data=data)
+
+        url = f"{self.BASE_URL}{endpoint}"
+        headers = {"Content-Type": "application/json"}
+        if params is None:
+            params = {}
+        params.update({"key": self.api_key, "token": self.token})
+        print(params)
+
+        try:
+            response = requests.request(
+                method, url, headers=headers, json=data, params=params
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.HTTPError as err:
+            raise TrelloAPIException(f"HTTP error occurred: {err}")
+        except requests.exceptions.RequestException as err:
+            raise TrelloAPIException(f"Error during request: {err}")
 
     def put(self, endpoint, data=None):
         """
