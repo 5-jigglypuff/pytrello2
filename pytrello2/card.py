@@ -31,5 +31,23 @@ class CardManager:
         card_data = self.client.post(f"cards/", data)
         return Card(card_data)
 
+    def delete_card(self, card_id):
+        """
+        Returns a Card object with the given ID.
+        """
+        card_data = self.client.delete(f"cards/{card_id}")
+        return Card(card_data)
 
+
+    def update_card(self, card_id, idList, start, due, desc):
+        """
+        Returns a Card object with the given ID.
+        """
+        data = {}
+        data["idList"] = idList
+        data["start"] = start
+        data["due"] = due
+        data["desc"] = desc
+        card_data = self.client.put(f"cards/{card_id}", data)
+        return Card(card_data)
 
