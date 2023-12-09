@@ -31,3 +31,5 @@ class CardManager:
         card_data = self.client.post(f"cards/", data)
         return Card(card_data)
 
+
+

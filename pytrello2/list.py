@@ -28,3 +28,23 @@ class ListManager:
         data["name"] = name
         list_data = self.client.post(f"lists/", data)
         return List(list_data)
+
+
+    def update_list(self, list_id, idBoard, name):
+        """
+        Returns a List object with the given ID.
+        """
+        data = {}
+        data["idBoard"] = idBoard
+        data["name"] = name
+        list_data = self.client.put(f"lists/{list_id}", data)
+        return List(list_data)
+
+
+
+    def archive_list(self, list_id):
+        """
+        Returns a List object with the given ID.
+        """
+        list_data = self.client.post(f"lists/{list_id}/closed")
+        return List(list_data)
