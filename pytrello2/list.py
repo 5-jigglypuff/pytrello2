@@ -19,6 +19,13 @@ class ListManager:
         list_data = self.client.get(f"lists/{list_id}")
         return List(list_data)
 
+    def get_cards_on_list(self, list_id):
+        """
+        Returns a List object with the given ID.
+        """
+        list_data = self.client.get(f"lists/{list_id}/cards/")
+        return List(list_data)
+
     def create_list(self, idBoard, name):
         """
         Returns a List object with the given ID.
