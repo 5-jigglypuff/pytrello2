@@ -23,8 +23,8 @@ class ListManager:
         """
         Returns a List object with the given ID.
         """
-        list_data = self.client.get(f"lists/{list_id}/cards/")
-        return List(list_data)
+        lists_data = self.client.get(f"lists/{list_id}/cards/")
+        return [List(list_data) for list_data in lists_data]
 
     def create_list(self, idBoard, name):
         """
