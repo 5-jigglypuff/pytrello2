@@ -35,10 +35,20 @@ class BoardManager:
 
     def create_board(self, name, desc):
         """
-        Returns a Card object with the given ID.
+        Creates a new Board object.
         """
         data = {}
         data["name"] = name
         data["desc"] = desc
         board_data = self.client.post("boards/", data)
+        return Board(board_data)
+
+    def update_board(self, board_id, name, desc):
+        """
+        Updates a Board object
+        """
+        data = {}
+        data["name"] = name
+        data["desc"] = desc
+        board_data = self.client.put("boards/", data)
         return Board(board_data)
