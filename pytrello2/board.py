@@ -43,7 +43,7 @@ class BoardManager:
         board_data = self.client.post("boards/", data)
         return Board(board_data)
 
-    def update_board(self, name, desc):
+    def update_board(self, board_id, name, desc):
         data = {}
         data["name"] = name
         data["desc"] = desc
