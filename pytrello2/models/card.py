@@ -20,4 +20,4 @@ class Card:
         """
         Returns a string representation of a Card object.
         """
-        return f"Card(idList={self.idList}, name={self.name}, desc={self.desc},"
+        return f"Card(id={self.id}, idList={self.idList}, name={self.name}, desc={self.desc},"

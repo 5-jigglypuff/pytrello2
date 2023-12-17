@@ -19,12 +19,13 @@ class CardManager:
         card_data = self.client.get(f"cards/{card_id}")
         return Card(card_data)
 
-    def create_card(self, idList, desc):
+    def create_card(self, idList, name, desc):
         """
         Returns a Card object with the given ID.
         """
         data = {}
         data["idList"] = idList
+        data["name"] = name
         data["desc"] = desc
         card_data = self.client.post("cards/", data)
         return Card(card_data)
