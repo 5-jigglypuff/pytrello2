@@ -48,3 +48,13 @@ class BoardManager:
         Deletes a Board object with the given ID.
         """
         return self.client.delete(f"boards/{board_id}")
+
+    def update_board(self, board_id, name, desc):
+        """
+        Updates a Board object
+        """
+        data = {}
+        data["name"] = name
+        data["desc"] = desc
+        board_data = self.client.put("boards/", data)
+        return Board(board_data)
