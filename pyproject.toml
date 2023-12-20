@@ -9,11 +9,24 @@ authors = [
     "Sonia Susanto <ss9040@nyu.edu>",
     "Yamini Lakshmi Narasimhan <yl9822@nyu.edu>"
 ]
+maintainers = [
+    "Venu Vardhan Reddy Tekula <vt2182@nyu.edu>",
+]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/pytrello2/pytrello2"
+documentation = "https://pytrello2.github.io/pytrello2/"
+keywords = ["trello", "trello-api", "wrapper"]
+
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/pytrello2/pytrello2/issues"
+
 
 [tool.poetry.dependencies]
 python = "^3.9"
 requests = "^2.31.0"
+
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.9.1"
@@ -28,6 +41,7 @@ sphinx = "^7.2.6"
 sphinx-rtd-theme = "^2.0.0"
 sphinx-copybutton = "^0.5.2"
 myst-parser = "^2.0.0"
+
 
 [tool.black]
 line-length = 88
