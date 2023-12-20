@@ -82,7 +82,7 @@ def test_update_board(mock_http_client):
     mock_http_client.put.return_value = board_data
 
     board_manager = BoardManager(mock_http_client)
-    board = board_manager.update_board("test_board_id", "name", "desc")
+    board = board_manager.update_board("test_board_id")
 
     assert isinstance(board, Board)
     assert board.id == board_data["id"]
