@@ -86,3 +86,4 @@ def test_update_board(mock_http_client):
 
     assert isinstance(board, Board)
     assert board.id == board_data["id"]
+    mock_http_client.put.assert_called_once_with("boards/test_board_id/", {})
