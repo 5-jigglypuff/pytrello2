@@ -68,3 +68,16 @@ class BoardManager:
         """
         lists = self.client.get(f"boards/{board_id}/lists/")
         return [List(list) for list in lists]
+
+    def update_board(self, board_id, **kwargs):
+        """
+        Updates a board with the given ID.
+
+        Parameters:
+            - board_id (str): The unique identifier of the board.
+            - kwargs: Additional options for the board.
+        """
+	    data = {}
+        data.update(kwargs)
+        board = self.client.put(f"boards/{board_id}/", data)
+        return Board(board)

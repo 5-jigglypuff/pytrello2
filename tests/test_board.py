@@ -94,3 +94,16 @@ def test_get_lists_on_board(mock_http_client):
         assert list.id == mock_data["id"]
         assert list.name == mock_data["name"]
     mock_http_client.get.assert_called_once_with("boards/test_board_id/lists/")
+
+
+# Test for update_board method
+def test_update_board(mock_http_client):
+    board_data = load_mock_data(BOARD_MOCK_DATA)
+    mock_http_client.put.return_value = board_data
+
+    board_manager = BoardManager(mock_http_client)
+    board = board_manager.update_board("test_board_id")
+
+    assert isinstance(board, Board)
+    assert board.id == board_data["id"]
+    mock_http_client.put.assert_called_once_with("boards/test_board_id/", {})
