@@ -77,7 +77,7 @@ class BoardManager:
             - board_id (str): The unique identifier of the board.
             - kwargs: Additional options for the board.
         """
-	    data = {}
+        data = {}
         data.update(kwargs)
         board = self.client.put(f"boards/{board_id}/", data)
         return Board(board)
